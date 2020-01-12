@@ -58,6 +58,11 @@ const App = () => {
     }
 
     if (content === '=') {
+      if (!operator) return;
+      if (operator === '+') {
+        setValue((memory + num).toString());
+        return;
+      }
       setMemory(null);
       setOperator(null);
       return;
