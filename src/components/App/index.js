@@ -4,16 +4,48 @@ import './App.css';
 
 const App = () => {
   const [value, setValue] = useState('0');
+  const [memory, setMemory] = useState(null);
+  const [operator, setOperator] = useState(null);
 
   const handleButtonPress = content => () => {
     const num = parseFloat(value);
 
     if (content === 'AC') {
       setValue('0');
+      setMemory(null);
       return;
     }
 
-    setValue((num + content).toString());
+    if (content === '±') {
+      setValue((num * -1).toString());
+      return;
+    }
+
+    if (content === '%') {
+      setValue((num / 100).toString());
+      return;
+    }
+
+    if (content === '+') {
+      setMemory(num);
+      setValue('0');
+      return;
+    }
+
+    if (content === '-') {
+      return;
+    }
+
+    if (content === '×') {
+      return;
+    }
+
+    if (content === '=') {
+      setMemory(null);
+      return;
+    }
+
+    setValue(parseFloat(num + content).toString());
   };
 
   return (
