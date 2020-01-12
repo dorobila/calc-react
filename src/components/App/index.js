@@ -13,6 +13,7 @@ const App = () => {
     if (content === 'AC') {
       setValue('0');
       setMemory(null);
+      setOperator(null);
       return;
     }
 
@@ -23,25 +24,42 @@ const App = () => {
 
     if (content === '%') {
       setValue((num / 100).toString());
+      setMemory(null);
+      setOperator(null);
       return;
     }
 
     if (content === '+') {
       setMemory(num);
       setValue('0');
+      setOperator('+');
       return;
     }
 
     if (content === '-') {
+      setMemory(num);
+      setValue('0');
+      setOperator('-');
       return;
     }
 
     if (content === '×') {
+      setMemory(num);
+      setValue('0');
+      setOperator('×');
+      return;
+    }
+
+    if (content === '÷') {
+      setMemory(num);
+      setValue('0');
+      setOperator('÷');
       return;
     }
 
     if (content === '=') {
       setMemory(null);
+      setOperator(null);
       return;
     }
 
