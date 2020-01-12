@@ -1,16 +1,11 @@
 {
-  "extends": [
-    "wesbos"
-  ],
+  "extends": ["wesbos"],
   "rules": {
     "no-console": 2,
     "react/jsx-filename-extension": [
       1,
       {
-        "extensions": [
-          ".js",
-          ".jsx"
-        ]
+        "extensions": [".js", ".jsx"]
       }
     ],
     "prettier/prettier": [
@@ -18,7 +13,7 @@
       {
         "trailingComma": "es5",
         "singleQuote": true,
-        "printWidth": 80,
+        "printWidth": 90,
         "tabWidth": 2
       }
     ]
