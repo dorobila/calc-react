@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Button from '../Button';
+import { comma } from '../utils/comma';
 import './App.css';
 
 const App = () => {
@@ -124,16 +125,21 @@ const App = () => {
     if (content === '.') {
       if (value.includes('.')) return;
 
-      value += value;
+      setValue(`${value}.`);
+      return;
     }
 
-    setValue(parseFloat(num + content).toString());
+    if (value[value.length] === '.') {
+      setValue(value + content);
+    } else {
+      setValue(parseFloat(num + content).toString());
+    }
   };
 
   return (
     <div className="App">
       <div className="top">top</div>
-      <div className="display">{value}</div>
+      <div className="display">{comma(value)}</div>
       <div className="buttons">
         <Button onButtonClick={handleButtonPress} content="AC" type="function" />
         <Button onButtonClick={handleButtonPress} content="±" type="function" />
