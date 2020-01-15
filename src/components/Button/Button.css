@@ -9,6 +9,12 @@
   justify-content: center;
   user-select: none;
   width: 110px;
+  transition: filter 0.3 ease-in-out;
+}
+
+.Button:active,
+.Button:focus {
+  filter: brightness(120%);
 }
 
 .Button.zero {

@@ -138,7 +138,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <div className="top">top</div>
+      <div className="top" />
       <div className="display">{comma(value)}</div>
       <div className="buttons">
         <Button onButtonClick={handleButtonPress} content="AC" type="function" />
