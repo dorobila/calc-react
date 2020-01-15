@@ -30,28 +30,76 @@ const App = () => {
     }
 
     if (content === '+') {
-      setMemory(num);
+      if (operator !== null) {
+        if (operator === '+') {
+          setMemory(memory + num);
+        } else if (operator === '-') {
+          setMemory(memory - num);
+        } else if (operator === '×') {
+          setMemory(memory * num);
+        } else if (operator === '÷') {
+          setMemory(memory / num);
+        }
+      } else {
+        setMemory(num);
+      }
       setValue('0');
       setOperator('+');
       return;
     }
 
     if (content === '-') {
-      setMemory(num);
+      if (operator !== null) {
+        if (operator === '+') {
+          setMemory(memory + num);
+        } else if (operator === '-') {
+          setMemory(memory - num);
+        } else if (operator === '×') {
+          setMemory(memory * num);
+        } else if (operator === '÷') {
+          setMemory(memory / num);
+        }
+      } else {
+        setMemory(num);
+      }
       setValue('0');
       setOperator('-');
       return;
     }
 
     if (content === '×') {
-      setMemory(num);
+      if (operator !== null) {
+        if (operator === '+') {
+          setMemory(memory + num);
+        } else if (operator === '-') {
+          setMemory(memory - num);
+        } else if (operator === '×') {
+          setMemory(memory * num);
+        } else if (operator === '÷') {
+          setMemory(memory / num);
+        }
+      } else {
+        setMemory(num);
+      }
       setValue('0');
       setOperator('×');
       return;
     }
 
     if (content === '÷') {
-      setMemory(num);
+      if (operator !== null) {
+        if (operator === '+') {
+          setMemory(memory + num);
+        } else if (operator === '-') {
+          setMemory(memory - num);
+        } else if (operator === '×') {
+          setMemory(memory * num);
+        } else if (operator === '÷') {
+          setMemory(memory / num);
+        }
+      } else {
+        setMemory(num);
+      }
       setValue('0');
       setOperator('÷');
       return;
@@ -61,11 +109,22 @@ const App = () => {
       if (!operator) return;
       if (operator === '+') {
         setValue((memory + num).toString());
-        return;
+      } else if (operator === '-') {
+        setValue((memory - num).toString());
+      } else if (operator === '×') {
+        setValue((memory * num).toString());
+      } else if (operator === '÷') {
+        setValue((memory / num).toString());
       }
       setMemory(null);
       setOperator(null);
       return;
+    }
+
+    if (content === '.') {
+      if (value.includes('.')) return;
+
+      value += value;
     }
 
     setValue(parseFloat(num + content).toString());
